@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Showcase - Portfolio Youssef</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00f5ff, #ff006e, #8a2be2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00f5ff;
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
+        }
+        
+        .logo-display {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h3 {
+            color: #00f5ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        /* Logo Styles */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Hexagonal Tech Logo */
+        .logo-hex .hex-container {
+            position: relative;
+        }
+        
+        .logo-hex .hexagon {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            transform: rotate(30deg);
+            background: linear-gradient(135deg, #00f5ff, #8a2be2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-hex .hex-content {
+            transform: rotate(-30deg);
+        }
+        
+        .logo-hex .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+        }
+        
+        .logo-hex .hex-glow {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #00f5ff, #8a2be2);
+            border-radius: 12px;
+            filter: blur(10px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Circuit Logo */
+        .logo-circuit .circuit-board {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: #0a0a0a;
+            border: 2px solid #00f5ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-circuit .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #00f5ff, transparent);
+            animation: circuit-flow 3s infinite linear;
+        }
+        
+        .logo-circuit .circuit-line-1 {
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+        }
+        
+        .logo-circuit .circuit-line-2 {
+            top: 0;
+            left: 15px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(0deg, transparent, #ff006e, transparent);
+            animation-delay: -1s;
+        }
+        
+        .logo-circuit .circuit-line-3 {
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            animation-delay: -2s;
+        }
+        
+        .logo-circuit .logo-letter {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #00f5ff;
+            text-shadow: 0 0 15px #00f5ff;
+            z-index: 10;
+        }
+        
+        /* Glitch Logo */
+        .logo-glitch .glitch-text {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00f5ff;
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+        
+        .logo-glitch .glitch-text::before,
+        .logo-glitch .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo-glitch .glitch-text::before {
+            color: #ff006e;
+            animation: glitch-1 2s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+        
+        .logo-glitch .glitch-text::after {
+            color: #8a2be2;
+            animation: glitch-2 2s infinite;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+        }
+        
+        /* Minimal Logo */
+        .logo-minimal .minimal-shape {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-minimal .shape-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 26px solid #00f5ff;
+            top: 5px;
+            animation: rotate 4s infinite linear;
+        }
+        
+        .logo-minimal .shape-circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ff006e;
+            border-radius: 50%;
+            bottom: 15px;
+            right: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo-minimal .shape-line {
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #8a2be2, #00f5ff);
+            bottom: 10px;
+            left: 5px;
+            animation: expand 3s infinite;
+        }
+        
+        .logo-minimal .minimal-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+        
+        /* Matrix Logo */
+        .logo-matrix .matrix-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-matrix .matrix-grid {
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+        }
+        
+        .logo-matrix .matrix-cell {
+            background: #0a0a0a;
+            border: 1px solid #333;
+        }
+        
+        .logo-matrix .matrix-cell.active {
+            background: #00f5ff;
+            box-shadow: 0 0 8px #00f5ff;
+            animation: matrix-blink 1.5s infinite;
+        }
+        
+        .logo-matrix .matrix-letter {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #00f5ff;
+            text-shadow: 0 0 15px #00f5ff;
+            z-index: 10;
+        }
+        
+        .logo-name {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #999;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes circuit-flow {
+            0% { background-position: -100% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        @keyframes glitch {
+            0%, 100% { transform: translateX(0); }
+            10% { transform: translateX(-2px); }
+            20% { transform: translateX(2px); }
+            30% { transform: translateX(-1px); }
+            40% { transform: translateX(1px); }
+            50% { transform: translateX(-2px); }
+            60% { transform: translateX(2px); }
+            70% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+            90% { transform: translateX(-2px); }
+        }
+        
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
+            10% { clip-path: polygon(0 10%, 100% 10%, 100% 55%, 0 55%); }
+            20% { clip-path: polygon(0 20%, 100% 20%, 100% 65%, 0 65%); }
+            30% { clip-path: polygon(0 5%, 100% 5%, 100% 50%, 0 50%); }
+            40% { clip-path: polygon(0 15%, 100% 15%, 100% 60%, 0 60%); }
+            50% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+            10% { clip-path: polygon(0 45%, 100% 45%, 100% 90%, 0 90%); }
+            20% { clip-path: polygon(0 35%, 100% 35%, 100% 80%, 0 80%); }
+            30% { clip-path: polygon(0 50%, 100% 50%, 100% 95%, 0 95%); }
+            40% { clip-path: polygon(0 40%, 100% 40%, 100% 85%, 0 85%); }
+            50% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes expand {
+            0%, 100% { width: 30px; }
+            50% { width: 40px; }
+        }
+        
+        @keyframes matrix-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🎨 Logo Options for Your Portfolio</h1>
+        
+        <div class="grid">
+            <!-- Hexagonal Tech -->
+            <div class="card">
+                <div class="logo-display">
+                    <div class="logo logo-hex">
+                        <div class="hex-container">
+                            <div class="hexagon">
+                                <div class="hex-content">
+                                    <span class="logo-text">YR</span>
+                                </div>
+                            </div>
+                            <div class="hex-glow"></div>
+                        </div>
+                        <div class="logo-name">YOUSSEF</div>
+                    </div>
+                </div>
+                <h3>Hexagonal Tech</h3>
+                <p>Modern geometric design with glowing effects - Perfect for tech portfolios</p>
+            </div>
+
+            <!-- Neon Circuit -->
+            <div class="card">
+                <div class="logo-display">
+                    <div class="logo logo-circuit">
+                        <div class="circuit-board">
+                            <div class="circuit-line circuit-line-1"></div>
+                            <div class="circuit-line circuit-line-2"></div>
+                            <div class="circuit-line circuit-line-3"></div>
+                            <div class="logo-letter">Y</div>
+                        </div>
+                        <div class="logo-name">YOUSSEF.DEV</div>
+                    </div>
+                </div>
+                <h3>Neon Circuit</h3>
+                <p>Circuit board style with flowing data animations - Great for developers</p>
+            </div>
+
+            <!-- Glitch Effect -->
+            <div class="card">
+                <div class="logo-display">
+                    <div class="logo logo-glitch">
+                        <div class="glitch-text" data-text="YR">YR</div>
+                        <div class="logo-name">YOUSSEF</div>
+                    </div>
+                </div>
+                <h3>Glitch Effect</h3>
+                <p>Cyberpunk glitch with color distortion - Bold and eye-catching</p>
+            </div>
+
+            <!-- Minimal Geometric -->
+            <div class="card">
+                <div class="logo-display">
+                    <div class="logo logo-minimal">
+                        <div class="minimal-shape">
+                            <div class="shape-triangle"></div>
+                            <div class="shape-circle"></div>
+                            <div class="shape-line"></div>
+                            <span class="minimal-text">Y</span>
+                        </div>
+                        <div class="logo-name">YOUSSEF</div>
+                    </div>
+                </div>
+                <h3>Minimal Geometric</h3>
+                <p>Clean shapes with subtle animations - Professional and elegant</p>
+            </div>
+
+            <!-- Matrix Style -->
+            <div class="card">
+                <div class="logo-display">
+                    <div class="logo logo-matrix">
+                        <div class="matrix-container">
+                            <div class="matrix-grid">
+                                <div class="matrix-cell active"></div>
+                                <div class="matrix-cell"></div>
+                                <div class="matrix-cell active"></div>
+                                <div class="matrix-cell"></div>
+                                <div class="matrix-cell active"></div>
+                                <div class="matrix-cell active"></div>
+                                <div class="matrix-cell"></div>
+                                <div class="matrix-cell active"></div>
+                                <div class="matrix-cell"></div>
+                            </div>
+                            <div class="matrix-letter">Y</div>
+                        </div>
+                        <div class="logo-name">YOUSSEF</div>
+                    </div>
+                </div>
+                <h3>Matrix Style</h3>
+                <p>Digital grid pattern with futuristic aesthetics - Perfect for cyberpunk theme</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; color: #00f5ff; font-size: 1.2rem;">
+            🚀 Choose your favorite and I'll integrate it into your portfolio!
+        </div>
+    </div>
+</body>
+</html> 

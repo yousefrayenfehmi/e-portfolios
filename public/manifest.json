@@ -1,0 +1,31 @@
+{
+  "name": "Yousef Rayen Fehmi - Portfolio",
+  "short_name": "YRF Portfolio",
+  "description": "Portfolio personnel de Yousef Rayen Fehmi - Développeur Full Stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00f5ff",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon-circuit.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon-glitch.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon-minimal.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ]
+} 

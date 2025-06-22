@@ -8,18 +8,16 @@
     <div class="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-yellow-500/20 to-pink-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
   </div>
 
-  <!-- Futuristic navigation -->
-  <nav class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-black/20 backdrop-blur-2xl border border-white/10 rounded-2xl px-8 py-4 shadow-2xl">
-    <div class="flex items-center space-x-8">
-      <div class="flex items-center space-x-3">
-        <div class="relative">
-          <div class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg animate-pulse"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg blur animate-ping"></div>
-        </div>
-        <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">YOUSSEF</span>
+  <!-- Futuristic navigation - Responsive -->
+  <nav class="fixed top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-50 bg-black/20 backdrop-blur-2xl border border-white/10 rounded-2xl px-4 sm:px-8 py-3 sm:py-4 shadow-2xl w-[95%] sm:w-auto max-w-4xl">
+    <div class="flex items-center justify-between sm:justify-center sm:space-x-8">
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <app-logo variant="hex" size="small" [showName]="false"></app-logo>
+        <span class="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">YOUSSEF</span>
       </div>
       
-      <ul class="hidden md:flex items-center space-x-6">
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex items-center space-x-6">
         <li><a href="#hero" class="relative text-white/80 hover:text-cyan-400 transition-all duration-300 group">
           <span>Home</span>
           <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 group-hover:w-full transition-all duration-300"></div>
@@ -37,6 +35,23 @@
           <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 group-hover:w-full transition-all duration-300"></div>
         </a></li>
       </ul>
+
+      <!-- Mobile Menu Button -->
+      <button class="lg:hidden text-white/80 hover:text-cyan-400 transition-colors duration-300" (click)="toggleMobileMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden mt-4 pt-4 border-t border-white/10">
+      <ul class="flex flex-col space-y-3">
+        <li><a href="#hero" class="block text-white/80 hover:text-cyan-400 transition-all duration-300 py-2">Home</a></li>
+        <li><a href="#about" class="block text-white/80 hover:text-cyan-400 transition-all duration-300 py-2">About</a></li>
+        <li><a href="#projects" class="block text-white/80 hover:text-cyan-400 transition-all duration-300 py-2">Projects</a></li>
+        <li><a href="#contact" class="block text-white/80 hover:text-cyan-400 transition-all duration-300 py-2">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -44,38 +59,38 @@
   <section id="hero" class="min-h-screen flex items-center justify-center relative">
     
     <div class="max-w-6xl mx-auto text-center px-6 z-10">
-      <!-- Holographic avatar -->
-      <div class="relative mb-12 inline-block">
-        <div class="w-48 h-48 relative">
+      <!-- Holographic avatar - Responsive -->
+      <div class="relative mb-8 sm:mb-12 inline-block">
+        <div class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 relative">
           <!-- Animated concentric circles -->
           <div class="absolute inset-0 rounded-full border-2 border-cyan-400/30 animate-spin"></div>
-          <div class="absolute inset-2 rounded-full border border-purple-400/20 animate-spin animate-reverse"></div>
-          <div class="absolute inset-4 rounded-full border border-pink-400/10 animate-pulse"></div>
+          <div class="absolute inset-1 sm:inset-2 rounded-full border border-purple-400/20 animate-spin animate-reverse"></div>
+          <div class="absolute inset-2 sm:inset-4 rounded-full border border-pink-400/10 animate-pulse"></div>
           
           <!-- Central avatar -->
-          <div class="absolute inset-8 bg-gradient-to-br from-cyan-400 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-6xl font-black text-white shadow-2xl">
+          <div class="absolute inset-4 sm:inset-6 md:inset-8 bg-gradient-to-br from-cyan-400 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-3xl sm:text-4xl md:text-6xl font-black text-white shadow-2xl">
             Y
           </div>
           
           <!-- Floating particles around -->
-          <div class="absolute -top-4 -right-4 w-3 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
-          <div class="absolute -bottom-4 -left-4 w-2 h-2 bg-purple-400 rounded-full animate-bounce animation-delay-1000"></div>
-          <div class="absolute top-1/2 -right-8 w-1 h-1 bg-pink-400 rounded-full animate-pulse"></div>
+          <div class="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-2 sm:w-3 h-2 sm:h-3 bg-cyan-400 rounded-full animate-bounce"></div>
+          <div class="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-purple-400 rounded-full animate-bounce animation-delay-1000"></div>
+          <div class="absolute top-1/2 -right-4 sm:-right-8 w-1 h-1 bg-pink-400 rounded-full animate-pulse"></div>
         </div>
       </div>
       
-      <!-- Title with modern typing effect -->
-      <div class="mb-8">
-        <h1 class="text-7xl md:text-9xl font-black mb-4 relative">
+      <!-- Title with modern typing effect - Responsive -->
+      <div class="mb-6 sm:mb-8">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-4 relative px-2">
           <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient bg-300% animate-pulse">
             YOUSSEF
           </span>
           <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg blur opacity-20 animate-pulse"></div>
         </h1>
         
-        <!-- Subtitle with scan effect -->
+        <!-- Subtitle with scan effect - Responsive -->
         <div class="relative overflow-hidden">
-          <h2 class="text-3xl md:text-4xl font-light text-cyan-300 uppercase tracking-wider">
+          <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-cyan-300 uppercase tracking-wider px-2">
             <span class="inline-block opacity-0 animate-fadeInUp animation-delay-500">F</span>
             <span class="inline-block opacity-0 animate-fadeInUp animation-delay-600">u</span>
             <span class="inline-block opacity-0 animate-fadeInUp animation-delay-700">l</span>
@@ -102,8 +117,8 @@
         </div>
       </div>
       
-      <!-- Futuristic description -->
-      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fadeInUp animation-delay-3000">
+      <!-- Futuristic description - Responsive -->
+      <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fadeInUp animation-delay-3000 px-4">
         Creator of <span class="text-cyan-400 font-semibold">revolutionary</span> digital experiences. 
         Specialized in <span class="text-purple-400 font-semibold">modern</span> technologies and 
         <span class="text-pink-400 font-semibold">immersive</span> interfaces.
@@ -142,9 +157,9 @@
       
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         
-        <!-- Holographic interface -->
+        <!-- Holographic interface - Responsive -->
         <div class="relative">
-          <div class="relative w-96 h-96 mx-auto">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto">
             <!-- Orbital rings -->
             <div class="absolute inset-0 border-2 border-cyan-400/30 rounded-full animate-spin"></div>
             <div class="absolute inset-8 border border-purple-400/20 rounded-full animate-spin animate-reverse"></div>
@@ -247,8 +262,8 @@
         </p>
       </div>
       
-      <!-- Ultra-modern projects grid -->
-      <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+      <!-- Ultra-modern projects grid - Responsive -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto items-stretch">
         
                                   <!-- Project 1: Train schedule management application -->
           <div class="group relative h-full">
@@ -275,29 +290,29 @@
               </div>
             </div>
             
-            <!-- Project content -->
-            <div class="p-6 flex-1 flex flex-col">
+            <!-- Project content - Responsive -->
+            <div class="p-4 sm:p-6 flex-1 flex flex-col">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-bold text-white">TRAIN_SCHEDULE_APP</h3>
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white">TRAIN_SCHEDULE_APP</h3>
               </div>
               
-              <p class="text-gray-400 mb-6 leading-relaxed flex-1">
+              <p class="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed flex-1">
                 Fullstack application allowing users to check train schedules 
                 and show train positions on an interactive map in real time.
               </p>
               
-              <!-- Tech Stack -->
-              <div class="flex flex-wrap gap-2 mb-6">
+              <!-- Tech Stack - Responsive -->
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                 <span class="px-3 py-1 bg-cyan-400/20 text-cyan-400 rounded-full text-xs font-mono border border-cyan-400/30">REACT</span>
                 <span class="px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs font-mono border border-blue-400/30">NODE.JS</span>
                 <span class="px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-xs font-mono border border-purple-400/30">MAPS API</span>
                 <span class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs font-mono border border-green-400/30">REALTIME</span>
               </div>
               
-              <!-- Action buttons -->
-              <div class="flex gap-3 mt-auto">
+              <!-- Action buttons - Responsive -->
+              <div class="flex gap-2 sm:gap-3 mt-auto">
                 <a href="https://github.com/yousefrayenfehmi/front_train" target="_blank" class="flex-1">
-                  <button class="w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-black font-bold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300">
+                  <button class="w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-black font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300 text-sm sm:text-base">
                     VIEW_PROJECT
                   </button>
                 </a>
@@ -329,24 +344,24 @@
               </div>
             </div>
             
-            <div class="p-6 flex-1 flex flex-col">
+            <div class="p-4 sm:p-6 flex-1 flex flex-col">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-bold text-white">E-LEARNING_PLATFORM</h3>
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white">E-LEARNING_PLATFORM</h3>
               </div>
               
-              <p class="text-gray-400 mb-6 leading-relaxed flex-1">
+              <p class="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed flex-1">
                 Creation of a platform to sell online courses, particularly in the field 
                 of artificial intelligence.
               </p>
               
-              <div class="flex flex-wrap gap-2 mb-6">
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                 <span class="px-3 py-1 bg-purple-400/20 text-purple-400 rounded-full text-xs font-mono border border-purple-400/30">React</span>
                 <span class="px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-xs font-mono border border-pink-400/30">Node Js</span>
               </div>
               
-              <div class="flex gap-3 mt-auto">
+              <div class="flex gap-2 sm:gap-3 mt-auto">
                 <a href="https://github.com/yousefrayenfehmi/front-end-formationIA" target="_blank" class="flex-1">
-                  <button class="w-full bg-gradient-to-r from-purple-400 to-pink-600 text-black font-bold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-purple-400/25 transition-all duration-300">
+                  <button class="w-full bg-gradient-to-r from-purple-400 to-pink-600 text-black font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:shadow-lg hover:shadow-purple-400/25 transition-all duration-300 text-sm sm:text-base">
                     VIEW_PROJECT
                   </button>
                 </a>
@@ -378,28 +393,28 @@
               </div>
             </div>
             
-            <div class="p-6 flex-1 flex flex-col">
+            <div class="p-4 sm:p-6 flex-1 flex flex-col">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-bold text-white">SMART_TAXI_EXPERIENCE</h3>
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white">SMART_TAXI_EXPERIENCE</h3>
               </div>
               
-              <p class="text-gray-400 mb-6 leading-relaxed flex-1">
+              <p class="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed flex-1">
                 Web application transforming taxi/VTC rides into enriching experiences with interactive quizzes, 
                 AI travel guide, activity purchases and smart advertising for drivers.
               </p>
               
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="px-3 py-1 bg-yellow-400/20 text-yellow-400 rounded-full text-xs font-mono border border-yellow-400/30">ANGULAR</span>
-                <span class="px-3 py-1 bg-orange-400/20 text-orange-400 rounded-full text-xs font-mono border border-orange-400/30">NODE.JS</span>
-                <span class="px-3 py-1 bg-red-400/20 text-red-400 rounded-full text-xs font-mono border border-red-400/30">PYTHON</span>
-                <span class="px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-xs font-mono border border-pink-400/30">STRIPE</span>
-                <span class="px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs font-mono border border-blue-400/30">AI/ML</span>
-                <span class="px-3 py-1 bg-indigo-400/20 text-indigo-400 rounded-full text-xs font-mono border border-indigo-400/30">TYPESCRIPT</span>
+              <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+                <span class="px-2 sm:px-3 py-1 bg-yellow-400/20 text-yellow-400 rounded-full text-xs font-mono border border-yellow-400/30">ANGULAR</span>
+                <span class="px-2 sm:px-3 py-1 bg-orange-400/20 text-orange-400 rounded-full text-xs font-mono border border-orange-400/30">NODE.JS</span>
+                <span class="px-2 sm:px-3 py-1 bg-red-400/20 text-red-400 rounded-full text-xs font-mono border border-red-400/30">PYTHON</span>
+                <span class="px-2 sm:px-3 py-1 bg-pink-400/20 text-pink-400 rounded-full text-xs font-mono border border-pink-400/30">STRIPE</span>
+                <span class="px-2 sm:px-3 py-1 bg-blue-400/20 text-blue-400 rounded-full text-xs font-mono border border-blue-400/30">AI/ML</span>
+                <span class="px-2 sm:px-3 py-1 bg-indigo-400/20 text-indigo-400 rounded-full text-xs font-mono border border-indigo-400/30">TYPESCRIPT</span>
               </div>
               
-              <div class="flex gap-3 mt-auto">
+              <div class="flex gap-2 sm:gap-3 mt-auto">
                 <a href="https://lowxy.fr/" target="_blank" class="flex-1">
-                  <button class="w-full bg-gradient-to-r from-purple-400 to-pink-600 text-black font-bold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-purple-400/25 transition-all duration-300">
+                  <button class="w-full bg-gradient-to-r from-purple-400 to-pink-600 text-black font-bold py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg hover:shadow-lg hover:shadow-purple-400/25 transition-all duration-300 text-sm sm:text-base">
                     VIEW_PROJECT
                   </button>
                 </a>
@@ -420,15 +435,15 @@
    <section id="skills" class="section-modern relative">
      <div class="max-w-7xl mx-auto px-6 relative z-10">
        
-       <!-- Enhanced futuristic title -->
-       <div class="text-center mb-24 relative">
-         <div class="inline-block relative">
-           <!-- Glow effect behind title -->
-           <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full scale-150 animate-pulse"></div>
-           
-           <h2 class="relative text-7xl md:text-9xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 animate-gradient bg-300%">
-             SKILLS
-           </h2>
+                <!-- Enhanced futuristic title - Responsive -->
+         <div class="text-center mb-16 sm:mb-20 md:mb-24 relative">
+           <div class="inline-block relative">
+             <!-- Glow effect behind title -->
+             <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full scale-150 animate-pulse"></div>
+             
+             <h2 class="relative text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-8 animate-gradient bg-300% px-2">
+               SKILLS
+             </h2>
            
            <!-- Animated decorative lines -->
            <div class="absolute -bottom-6 left-0 right-0 flex justify-center space-x-2">
@@ -451,31 +466,31 @@
          </div>
        </div>
        
-       <!-- Skills categories -->
-       <div class="space-y-16">
+       <!-- Skills categories - Mobile Optimized -->
+       <div class="space-y-8 sm:space-y-12 lg:space-y-16">
          
                    <!-- Frontend Technologies -->
-          <div class="card-futuristic p-8 hover:shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500 group">
-            <div class="flex items-center justify-between mb-8">
-              <h3 class="text-3xl font-bold text-white flex items-center group-hover:text-cyan-300 transition-colors duration-300">
-                <span class="w-4 h-4 bg-cyan-400 rounded-full mr-4 animate-pulse group-hover:animate-spin"></span>
-                FRONTEND_TECHNOLOGIES
+          <div class="card-futuristic p-4 sm:p-6 lg:p-8 hover:shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500 group">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center group-hover:text-cyan-300 transition-colors duration-300 mb-2 sm:mb-0">
+                <span class="w-3 h-3 sm:w-4 sm:h-4 bg-cyan-400 rounded-full mr-3 sm:mr-4 animate-pulse group-hover:animate-spin"></span>
+                <span class="text-sm sm:text-base md:text-xl">FRONTEND_TECHNOLOGIES</span>
               </h3>
-              <div class="text-cyan-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-sm font-mono">[06]</span>
+              <div class="text-cyan-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300 self-start sm:self-auto">
+                <span class="text-xs sm:text-sm font-mono">[06]</span>
               </div>
             </div>
-           <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-             <div class="glass-effect skill-card rounded-2xl p-6 text-center hover-lift animate-rotate-in animate-delay-100">
-               <div class="text-5xl mb-4">⚛️</div>
-               <h4 class="font-bold text-cyan-300 text-lg">React</h4>
-               <div class="w-full h-1 bg-gradient-to-r from-cyan-400 to-transparent rounded mt-3"></div>
+           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-6">
+             <div class="glass-effect skill-card rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center hover-lift animate-rotate-in animate-delay-100">
+               <div class="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3 lg:mb-4">⚛️</div>
+               <h4 class="font-bold text-cyan-300 text-sm sm:text-base lg:text-lg">React</h4>
+               <div class="w-full h-0.5 sm:h-1 bg-gradient-to-r from-cyan-400 to-transparent rounded mt-2 sm:mt-3"></div>
              </div>
              
-             <div class="glass-effect skill-card rounded-2xl p-6 text-center hover-lift animate-rotate-in animate-delay-200">
-               <div class="text-5xl mb-4">🅰️</div>
-               <h4 class="font-bold text-cyan-300 text-lg">Angular</h4>
-               <div class="w-full h-1 bg-gradient-to-r from-cyan-400 to-transparent rounded mt-3"></div>
+             <div class="glass-effect skill-card rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center hover-lift animate-rotate-in animate-delay-200">
+               <div class="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3 lg:mb-4">🅰️</div>
+               <h4 class="font-bold text-cyan-300 text-sm sm:text-base lg:text-lg">Angular</h4>
+               <div class="w-full h-0.5 sm:h-1 bg-gradient-to-r from-cyan-400 to-transparent rounded mt-2 sm:mt-3"></div>
              </div>
              
              <div class="glass-effect skill-card rounded-2xl p-6 text-center hover-lift animate-rotate-in animate-delay-300">
@@ -506,13 +521,13 @@
          
                    <!-- Backend Technologies -->
           <div class="card-futuristic p-8 hover:shadow-2xl hover:shadow-purple-400/10 transition-all duration-500 group">
-            <div class="flex items-center justify-between mb-8">
-              <h3 class="text-3xl font-bold text-white flex items-center group-hover:text-purple-300 transition-colors duration-300">
-                <span class="w-4 h-4 bg-purple-400 rounded-full mr-4 animate-pulse group-hover:animate-spin"></span>
-                BACKEND_TECHNOLOGIES
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center group-hover:text-purple-300 transition-colors duration-300 mb-2 sm:mb-0">
+                <span class="w-3 h-3 sm:w-4 sm:h-4 bg-purple-400 rounded-full mr-3 sm:mr-4 animate-pulse group-hover:animate-spin"></span>
+                <span class="text-sm sm:text-base md:text-xl">BACKEND_TECHNOLOGIES</span>
               </h3>
-              <div class="text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-sm font-mono">[06]</span>
+              <div class="text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300 self-start sm:self-auto">
+                <span class="text-xs sm:text-sm font-mono">[06]</span>
               </div>
             </div>
            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -556,13 +571,13 @@
          
                    <!-- Frameworks & Libraries -->
           <div class="card-futuristic p-8 hover:shadow-2xl hover:shadow-pink-400/10 transition-all duration-500 group">
-            <div class="flex items-center justify-between mb-8">
-              <h3 class="text-3xl font-bold text-white flex items-center group-hover:text-pink-300 transition-colors duration-300">
-                <span class="w-4 h-4 bg-pink-400 rounded-full mr-4 animate-pulse group-hover:animate-spin"></span>
-                FRAMEWORKS_&_LIBRARIES
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center group-hover:text-pink-300 transition-colors duration-300 mb-2 sm:mb-0">
+                <span class="w-3 h-3 sm:w-4 sm:h-4 bg-pink-400 rounded-full mr-3 sm:mr-4 animate-pulse group-hover:animate-spin"></span>
+                <span class="text-sm sm:text-base md:text-xl">FRAMEWORKS_&_LIBRARIES</span>
               </h3>
-              <div class="text-pink-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-sm font-mono">[03]</span>
+              <div class="text-pink-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300 self-start sm:self-auto">
+                <span class="text-xs sm:text-sm font-mono">[03]</span>
               </div>
             </div>
            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -590,13 +605,13 @@
          
                    <!-- Databases -->
           <div class="card-futuristic p-8 hover:shadow-2xl hover:shadow-green-400/10 transition-all duration-500 group">
-            <div class="flex items-center justify-between mb-8">
-              <h3 class="text-3xl font-bold text-white flex items-center group-hover:text-green-300 transition-colors duration-300">
-                <span class="w-4 h-4 bg-green-400 rounded-full mr-4 animate-pulse group-hover:animate-spin"></span>
-                DATABASES
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center group-hover:text-green-300 transition-colors duration-300 mb-2 sm:mb-0">
+                <span class="w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full mr-3 sm:mr-4 animate-pulse group-hover:animate-spin"></span>
+                <span class="text-sm sm:text-base md:text-xl">DATABASES</span>
               </h3>
-              <div class="text-green-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-sm font-mono">[05]</span>
+              <div class="text-green-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300 self-start sm:self-auto">
+                <span class="text-xs sm:text-sm font-mono">[05]</span>
               </div>
             </div>
            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -636,13 +651,13 @@
          
                    <!-- Enterprise & Tools -->
           <div class="card-futuristic p-8 hover:shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500 group">
-            <div class="flex items-center justify-between mb-8">
-              <h3 class="text-3xl font-bold text-white flex items-center group-hover:text-yellow-300 transition-colors duration-300">
-                <span class="w-4 h-4 bg-yellow-400 rounded-full mr-4 animate-pulse group-hover:animate-spin"></span>
-                ENTERPRISE_&_TOOLS
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center group-hover:text-yellow-300 transition-colors duration-300 mb-2 sm:mb-0">
+                <span class="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-full mr-3 sm:mr-4 animate-pulse group-hover:animate-spin"></span>
+                <span class="text-sm sm:text-base md:text-xl">ENTERPRISE_&_TOOLS</span>
               </h3>
-              <div class="text-yellow-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
-                <span class="text-sm font-mono">[06]</span>
+              <div class="text-yellow-400 opacity-50 group-hover:opacity-100 transition-opacity duration-300 self-start sm:self-auto">
+                <span class="text-xs sm:text-sm font-mono">[06]</span>
               </div>
             </div>
            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -706,10 +721,10 @@
         </p>
       </div>
       
-      <div class="grid lg:grid-cols-2 gap-16">
+      <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
         
-        <!-- Contact information with holographic interface -->
-        <div class="space-y-8">
+        <!-- Contact information with holographic interface - Responsive -->
+        <div class="space-y-6 sm:space-y-8">
           
           <!-- Terminal style interface -->
           <div class="card-futuristic p-8">
@@ -758,8 +773,8 @@
           
         </div>
         
-        <!-- Futuristic form -->
-        <div class="card-futuristic p-8">
+        <!-- Futuristic form - Responsive -->
+        <div class="card-futuristic p-4 sm:p-6 lg:p-8">
           <div class="flex items-center mb-8">
             <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
             <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>

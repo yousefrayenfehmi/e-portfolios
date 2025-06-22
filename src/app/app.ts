@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { EmailService, ContactForm } from './services/email.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LogoComponent } from './components/logo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LogoComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css', './responsive.css']
 })
 export class AppComponent {
   title = 'portfolio';
@@ -88,5 +89,13 @@ export class AppComponent {
 
   hideNotification() {
     this.showNotification = false;
+  }
+
+  // Fonction pour le menu mobile
+  toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('hidden');
+    }
   }
 }

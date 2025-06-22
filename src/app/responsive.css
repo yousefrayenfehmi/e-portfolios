@@ -1,0 +1,184 @@
+/* Styles responsifs personnalisés pour le portfolio */
+
+/* Animations personnalisées pour mobile */
+@media (max-width: 640px) {
+  /* Réduire les animations sur mobile pour de meilleures performances */
+  .animate-spin {
+    animation-duration: 4s;
+  }
+  
+  .animate-bounce {
+    animation-duration: 1.5s;
+  }
+  
+  /* Ajustements pour les petits écrans */
+  .section-modern {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  /* Navigation mobile améliorée */
+  nav {
+    backdrop-filter: blur(20px);
+  }
+  
+  /* Cartes de projets plus compactes */
+  .card-futuristic {
+    margin-bottom: 1rem;
+  }
+  
+  /* Texte plus lisible sur mobile */
+  .font-mono {
+    font-size: 0.75rem;
+  }
+  
+  /* Amélioration des formulaires sur mobile */
+  input, textarea {
+    font-size: 16px; /* Évite le zoom sur iOS */
+  }
+}
+
+/* Tablettes */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .section-modern {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  /* Grille adaptée pour tablettes */
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .section-modern {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  
+  /* Effets hover plus prononcés sur desktop */
+  .hover-lift:hover {
+    transform: translateY(-15px) scale(1.02);
+  }
+  
+  /* Animations plus fluides sur desktop */
+  .animate-gradient {
+    background-size: 400% 400%;
+  }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .min-h-screen {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  /* Réduire la taille des éléments en mode paysage */
+  .text-7xl, .text-8xl, .text-9xl {
+    font-size: 3rem;
+  }
+  
+  .w-48, .h-48 {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+/* Mode sombre amélioré */
+@media (prefers-color-scheme: dark) {
+  /* Déjà optimisé pour le mode sombre */
+}
+
+/* Réduction de mouvement pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-gradient {
+    animation: none;
+  }
+  
+  .transition-all,
+  .transition-transform,
+  .transition-colors {
+    transition: none;
+  }
+}
+
+/* Amélioration du contraste pour l'accessibilité */
+@media (prefers-contrast: high) {
+  .text-gray-400 {
+    color: #d1d5db;
+  }
+  
+  .text-white\/80 {
+    color: white;
+  }
+  
+  .border-white\/10 {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Touch-friendly sur appareils tactiles */
+@media (hover: none) and (pointer: coarse) {
+  /* Augmenter la taille des zones tactiles */
+  button, a {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Supprimer les effets hover sur tactile */
+  .hover\:scale-110:hover {
+    transform: none;
+  }
+  
+  .hover\:shadow-lg:hover {
+    box-shadow: none;
+  }
+  
+  /* Améliorer la visibilité des états actifs */
+  button:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+/* Écrans très larges (4K+) */
+@media (min-width: 1920px) {
+  .max-w-7xl {
+    max-width: 90rem;
+  }
+  
+  .text-9xl {
+    font-size: 12rem;
+  }
+}
+
+/* Styles pour les très petits écrans */
+@media (max-width: 360px) {
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+  
+  /* Navigation ultra-compacte */
+  nav {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .text-lg {
+    font-size: 1rem;
+  }
+} 
