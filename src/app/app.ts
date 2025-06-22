@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'portfolio';
   gmail = 'yousseffehmi96@gmail.com';
   location = 'Tunis, Tunisia';
-  
+  year = new Date().getFullYear();
   // Formulaire de contact
   contactForm: ContactForm = {
     name: '',
@@ -29,7 +29,9 @@ export class AppComponent {
   notificationMessage = '';
   notificationType: 'success' | 'error' = 'success';
 
-  constructor(private emailService: EmailService) {}
+  constructor(private emailService: EmailService) {
+    
+  }
 
   async onSubmitContact() {
     console.log('=== DEBUT ENVOI EMAIL ===');
