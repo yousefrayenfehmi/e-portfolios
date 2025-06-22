@@ -41,6 +41,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Environment files (contains sensitive data)
-src/environments/environment.ts
-src/environments/environment.prod.ts
+# Environment files are now safe to commit (using env variables)
